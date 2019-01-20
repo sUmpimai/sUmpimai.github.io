@@ -47,12 +47,13 @@ ol, ul {
 .hero {
     position: absolute;
     left: 0; 
-    top: 40%;
+    top: 30%;
     width: 100%;
     text-align: center;
 }
 .hero h1 {
     font-size: 48px;
+    color: #ffffff;
 }
 /* flex box style */
 .flex-container {
@@ -85,9 +86,139 @@ ol, ul {
     font-weight: 600;
     padding: 10px;
     margin-top: 10px;
+}
+
+/* skeleton*/
+.skeleton:empty {
+    margin: auto;
+    width: 370px;
+    height: 600px;
+    /* change height to see repeat-y behavior */
+    background-image: linear-gradient(100deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 80%), linear-gradient(#fff 15px, transparent 0), linear-gradient(#fff 15px, transparent 0), linear-gradient(#fff 15px, transparent 0), linear-gradient(#e6e6e6 120px, transparent 0);
+    background-repeat: repeat-y;
+    background-size: 50px 150px, 150px 150px, 250px 150px, 300px 150px, 350px 150px;
+    background-position: 0 0, 20px 10px, 20px 40px, 20px 70px, 10px 0;
+    animation: shine 1s infinite; }
+  
+  @keyframes shine {
+    to {
+      background-position: 100% 0, 20px 10px, 20px 40px, 20px 70px, 10px 0; } }
+
+      @media (min-width: 1128px) {
+        .content {
+          width: 100%;
+          padding-top: 40px;
+          -moz-box-sizing: border-box;
+          -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+          margin: 0 auto !important;
+          position: relative !important;
+          padding-left: 80px !important;
+          padding-right: 80px !important; }
+      
+        .box {
+          padding-bottom: 50px; } }
+      .load-bar {
+        position: relative;
+        margin: 40px auto;
+        width: 100%;
+        height: 10px;
+        background-color: #fdba2c; }
+      
+      .bar {
+        content: "";
+        display: inline;
+        position: absolute;
+        width: 0;
+        height: 100%;
+        left: 0%; }
+        .bar:nth-child(1) {
+          background-color: #da4733;
+          animation: loading 3s linear infinite; }
+        .bar:nth-child(2) {
+          background-color: #3b78e7;
+          animation: loading 3s linear 1s infinite; }
+        .bar:nth-child(3) {
+          background-color: #fdba2c;
+          animation: loading 3s linear 2s infinite; }
+      
+      @keyframes loading {
+        from {
+          left: 0%;
+          width: 0;
+          z-index: 100; }
+        33.3333% {
+          left: 0;
+          width: 100%;
+          z-index: 10; }
+        to {
+          left: 0;
+          width: 100%; } }
+      .loader {
+        color: #008489;
+        font-size: 10px;
+        margin: 40px auto;
+        position: relative;
+        text-indent: -9999em;
+        -webkit-animation-delay: -0.16s;
+        animation-delay: -0.16s;
+        border-radius: 50%;
+        width: 2.5em;
+        height: 2.5em;
+        -webkit-animation-fill-mode: both;
+        animation-fill-mode: both;
+        -webkit-animation: load 1s infinite;
+        animation: load 1s infinite; }
+        .loader:before, .loader:after {
+          border-radius: 50%;
+          width: 2.5em;
+          height: 2.5em;
+          -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+          -webkit-animation: load 1s infinite;
+          animation: load 1s infinite;
+          content: '';
+          position: absolute;
+          top: 0; }
+        .loader:before {
+          left: -3.5em;
+          -webkit-animation-delay: -0.32s;
+          animation-delay: -0.32s; }
+        .loader:after {
+          left: 3.5em; }
+      
+      @-webkit-keyframes load {
+        0% {
+          background-color: #fff; }
+        50% {
+          background-color: #008489; } }
+      @keyframes load {
+        0% {
+          background-color: #fff; }
+        50% {
+          background-color: #008489; } }     
+.navbar-light {
+    background-color: #f4f4f4;
+    padding: 10px 0;
+}
+
+.navbar-light a {
+    padding: 20px;
 
 }
 
+.dropdown-toggle:after {
+    display: inline-block;
+margin-left: .255em;
+vertical-align: .255em;
+content: "";
+border-top: .3em solid;
+border-right: .3em solid transparent;
+border-bottom: 0;
+border-left: .3em solid transparent;
+}
 
 
+  
+  
 

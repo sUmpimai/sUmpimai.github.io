@@ -94,7 +94,7 @@ ol, ul {
     width: 370px;
     height: 600px;
     /* change height to see repeat-y behavior */
-    background-image: linear-gradient(100deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 80%), linear-gradient(#fff 15px, transparent 0), linear-gradient(#fff 15px, transparent 0), linear-gradient(#fff 15px, transparent 0), linear-gradient(#e6e6e6 120px, transparent 0);
+    background-image: linear-gradient(100deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 80%), linear-gradient(#cdcdcd 15px, transparent 0), linear-gradient(#cdcdcd 15px, transparent 0), linear-gradient(#cdcdcd 15px, transparent 0), linear-gradient(#f7f7f7 120px, transparent 0);
     background-repeat: repeat-y;
     background-size: 50px 150px, 150px 150px, 250px 150px, 300px 150px, 350px 150px;
     background-position: 0 0, 20px 10px, 20px 40px, 20px 70px, 10px 0;
@@ -196,7 +196,43 @@ ol, ul {
         0% {
           background-color: #fff; }
         50% {
-          background-color: #008489; } }     
+          background-color: #008489; } }  
+          
+.bounceball {
+    margin: 0 auto;
+}
+
+.bounceball span {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    margin: 5px;
+    transition: all 500ms ease;
+    animation: wave 1.5s ease infinite;
+}
+
+.bounceball span:nth-child(1) { animation-delay: 0; }
+.bounceball span:nth-child(2) { animation-delay: 100ms; }
+.bounceball span:nth-child(3) { animation-delay: 300ms; }
+.bounceball span:nth-child(4) { animation-delay: 400ms; }
+.bounceball span:nth-child(5) { animation-delay: 500ms; }
+
+.red { background-color: #e12d2d; }
+.yellow { background-color: #ecc34a; }
+.green { background-color: #36b66f; }
+.purple { background-color: #704dff; }
+.blue { background-color: #488bf8; }
+
+@keyframes wave {
+    0%, 40%, 100% {
+        transform: translate(0, 0);
+    }
+    10% {
+        transform: translate(0, -15px);
+    }
+}
+
 .navbar-light {
     background-color: #f4f4f4;
     padding: 10px 0;

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"></head>
+    <title>To Do List</title>
+    <link rel="stylesheet" type="text/css" href="../dist/style/main.css">
+    <link rel="stylesheet" type="text/css" href="/dist/style/todo_style.css">
+    <link href="https://fonts.googleapis.com/css?family=Cabin" rel="stylesheet">
+    <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<body>
+    <div class="container-fluid">
+        <div class="outer-frame">
+            <h3 style="background-color: #400090; color: #fff; margin: 0; padding: 20px">To-Do</h3>
+            <div class="sidebar">
+                <button class="tab-link" onclick="openCity(event, 'today')" id="defaultOpen"><i class="fas fa-tasks"></i> Today</button>
+                <button class="tab-link" onclick="openCity(event, 'work')"><i class="fas fa-briefcase"></i> Work</button>
+                <button class="tab-link" onclick="openCity(event, 'shopping')"><i class="fas fa-shopping-bag"></i> Shopping</button>
+                <button class="tab-link" onclick="openCity(event, 'study')"><i class="fas fa-graduation-cap"></i> Study</button>
+                <button class="tab-link" onclick="openCity(event, 'travel')"><i class="fas fa-plane"></i> Travel</button>
+            </div>
+            <div class="page-content">
+                <div class="myDay"><h4>My Day :</h4> <p id="dateTime"></p></div>
+                <div id="today" class="tab-pane">
+                    <ul>
+                        <li>To Do 1 </li>
+                        <li>To Do 2 </li>
+                        <li>To Do 3 </li>
+                    </ul>
+                    <input id="userInput" type="text" placeholder="new item..." />
+                    <button id="enter">Add</button>
+                </div>
+                <div id="work" class="tab-pane">
+                    // work
+                </div>
+                <div id="shopping" class="tab-pane">
+                    // shopping
+                </div>
+                <div id="study" class="tab-pane">
+                    // Study
+                </div>
+                <div id="travel" class="tab-pane">
+                    // Travel
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script>
+    var d = new Date();
+    var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursaday", "Friday", "Saturday"]
+    var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    document.getElementById("dateTime").innerHTML = days[d.getDay()] + ", " + months[d.getMonth()] + " " + d.getDate();
+</script>
+<script>
+      function openCity(evt, cityName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tab-pane");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tab-link");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+
+document.getElementById("defaultOpen").click();
+</script>
+<script>
+    
+    var enterButton = document.getElementById("enter");
+var input = document.getElementById("userInput");
+var ul = document.querySelector("ul");
+var item = document.getElementsByTagName("li");
+
+function inputLength(){
+	return input.value.length;
+} 
+
+function listLength(){
+	return item.length;
+}
+
+function createListElement() {
+	var li = document.createElement("li"); 
+	li.innerHTML = "<input type='checkbox' id='txt'>" +
+                   "<label>" + input.value + "</label>" +
+                   "</input>";
+	ul.appendChild(li);
+	input.value = ""; 
+
+	function crossOut() {
+        $('input .txt').addClass("strike");
+		li.classList.add("strike");
+	}
+
+	li.addEventListener("click",crossOut);
+
+	var dBtn = document.createElement("button");
+	dBtn.appendChild(document.createTextNode("X"));
+	li.appendChild(dBtn);
+	dBtn.addEventListener("click", deleteListItem);
+
+	function deleteListItem(){
+        li.remove();
+	}
+}
+
+function addListAfterClick(){
+	if (inputLength() > 0) { 
+		createListElement();
+	}
+}
+
+function addListAfterKeypress(event) {
+	if (inputLength() > 0 && event.which ===13) { 
+		createListElement();
+	} 
+}
+
+enterButton.addEventListener("click",addListAfterClick);
+
+input.addEventListener("keypress", addListAfterKeypress);
+
+</script>
+</body>
+</html>

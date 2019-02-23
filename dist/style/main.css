@@ -1,6 +1,9 @@
 body, html {
     height: 100%;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Cabin', sans-serif;
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
 }
 
 ol, ul { 
@@ -14,11 +17,34 @@ ol, ul {
     position: relative;
 }
 
+.outer-frame {
+    width: 990px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
 .page-container {
     padding: 10px 15px 40px 15px;
     box-sizing: border-box;
 }
 
+.sidebar {
+    width: 190px;
+    float: left;
+    padding: 0;
+    height: 100vh;
+    background-color: #ffffff;
+}
+
+.page-content {
+    padding-left: 190px;
+    height: 100vh;
+    background-color: #f4f4f4;
+}
+
+.strike {
+    text-decoration: line-through;
+}
 /* parallax style */
 .parallax-bg1 {
     background-image: url('/dist/img/botanical-bright-cacti-323391.jpg');
